@@ -20,6 +20,26 @@ def create_game():
     r = requests.post(f"{BASE_URL}/games/", json=data)
     print(r.json())
 
+def read_player_by_id(player_id):
+    r = requests.get(f"{BASE_URL}/players/{player_id}")
+    print(f"GET /players/{player_id} → {r.json()}")
+    return r.json()
+
+def delete_player_by_id(player_id):
+    r = requests.delete(f"{BASE_URL}/players/{player_id}")
+    print(f"DELETE /players/{player_id} → {r.json()}")
+    return r.json()
+
+def read_game_by_id(game_id):
+    r = requests.get(f"{BASE_URL}/games/{game_id}")
+    print(f"GET /games/{game_id} → {r.json()}")
+    return r.json()
+
+def delete_game_by_id(game_id):
+    r = requests.delete(f"{BASE_URL}/games/{game_id}")
+    print(f"DELETE /games/{game_id} → {r.json()}")
+    return r.json()
+
 if __name__ == "__main__":
     create_player()
     get_players()
